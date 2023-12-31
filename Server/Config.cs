@@ -40,7 +40,7 @@ namespace Server
                     ClientId = "Client",
                     AllowedGrantTypes =new[] {IdentityConstant.GrantType.UserCredentials},
                     ClientSecrets = { new Secret("secret".Sha256()) },
-                    AccessTokenLifetime = 1209600,
+                    AccessTokenLifetime = 1,
                     AllowOfflineAccess = true,
                     AllowAccessTokensViaBrowser = true,
                     AllowedScopes = {

@@ -40,24 +40,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//builder.Services.AddAuthorization();
 
-//builder.Services.AddAuthentication(options =>
-//{
-//    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-//    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-//    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-//})
-//                    .AddJwtBearer(options =>
-//                    {
-//                        options.MetadataAddress = "https://localhost:5000/.well-known/openid-configuration";
-//                        options.RequireHttpsMetadata = false;
-//                        options.Authority = "https://localhost:5000";
-//                        options.TokenValidationParameters = new TokenValidationParameters
-//                        {
-//                            ValidateAudience = false
-//                        };
-//                    });
 
 var app = builder.Build();
 
