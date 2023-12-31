@@ -23,6 +23,7 @@ namespace Server.Validator
 
         public async Task ValidateAsync(ExtensionGrantValidationContext context)
         {
+            var userName = context.Request.Raw.Get("userName");
             var email = context.Request.Raw.Get("email");
             var password = context.Request.Raw.Get("password");
             var client_id = context.Request.Raw.Get("client_id");
@@ -32,6 +33,13 @@ namespace Server.Validator
             {
                 context.Result = new GrantValidationResult(TokenRequestErrors.InvalidGrant);
                 _logger.LogInformation("Grant type is incorrect");
+                return;
+            }
+
+            if (!userName.Equals(userName))
+            {
+                context.Result = new GrantValidationResult(TokenRequestErrors.InvalidGrant);
+                _logger.LogInformation("UserName is incorrect");
                 return;
             }
 

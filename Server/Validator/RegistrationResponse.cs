@@ -1,5 +1,7 @@
 ﻿
 using IdentityServer4.Validation;
+using Microsoft.AspNetCore.Identity;
+using Server.Model;
 
 namespace Server.Validator
 {
@@ -8,16 +10,15 @@ namespace Server.Validator
         public async Task ValidateAsync(CustomTokenRequestValidationContext context)
         {
             var c = context;
-            var t = c.Result;
-            var customResponse = c.Result.CustomResponse;
             var validatedRequest = c.Result.ValidatedRequest;
-            var error = c.Result.Error;
-            var isError = c.Result.IsError;
+            var email = context.Result.ValidatedRequest.Raw.Get("email");
+            var password = context.Result.ValidatedRequest.Raw.Get("password");
+
             var response = new Dictionary<string, object>()
-        {
-            { "name", "zakria"},
-            { "age", "25" },
-        };
+            {
+                { "email", email},
+                { "password", password },
+            };
 
             context.Result.CustomResponse = response;
 

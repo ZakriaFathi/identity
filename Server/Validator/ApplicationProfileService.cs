@@ -26,7 +26,7 @@ namespace Server.Validator
             context.IssuedClaims.Add(new Claim("Name", user.UserName));
             
             var newclina = await _claimsFactory.CreateAsync(user);
-            context.IssuedClaims.Add(new Claim("Age", "30"));
+            context.IssuedClaims.Add(new Claim("email", user.Email));
 
 
             if (deviceId != null)
